@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Budget Variance Report | TSMRF Management</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<aside class="sidebar">
+  <h2>TSMRF</h2><p>Material Recovery Facility</p>
+  <nav id="navigation">
+        <a class="nav-btn" href="/">Dashboard</a>
+        <a class="nav-btn" href="/web/contacts">Contacts</a>
+        <a class="nav-btn" href="/web/products">Products</a>
+        <a class="nav-btn" href="/web/sorters">Optical Sorters</a>
+        <a class="nav-btn" href="/web/production">Production</a>
+        <a class="nav-btn" href="/web/purchase-orders">Purchase Orders</a>
+        <a class="nav-btn" href="/web/vendor-bills">Vendor Bills</a>
+        <a class="nav-btn" href="/web/sales-orders">Sales Orders</a>
+        <a class="nav-btn" href="/web/invoices">Invoices</a>
+        <a class="nav-btn" href="/web/payments">Payments</a>
+        <a class="nav-btn" href="/web/accounts">Accounts</a>
+        <a class="nav-btn" href="/web/analytic-accounts">Analytic Accounts</a>
+        <a class="nav-btn" href="/web/budgets">Budgets</a>
+        <a class="nav-btn" href="/web/journals">Journals</a>
+        <a class="nav-btn" href="/web/ledger">Ledger</a>
+        <a class="nav-btn" href="/web/reports/balance-sheet">Reports</a>
+  </nav>
+</aside>
+<main class="main">
+  <header class="topbar"><div><h1>Budget Variance Report</h1><p>Automated Urban Pneumatic Trash Sorting &amp; Material Recovery Facility</p></div></header>
+<section class="report-card"><h3>Planned vs Actual</h3><div class="table-wrap"><table class="data-table wide-table"><thead><tr><th>Budget ID</th><th>Analytic Account</th><th>Period</th><th>Start</th><th>End</th><th>Planned Electricity</th><th>Actual Electricity</th><th>Electricity Variance</th><th>Planned Repairs</th><th>Actual Repairs</th><th>Repair Variance</th><th>Planned Sales</th><th>Actual Sales</th><th>Sales Variance</th></tr></thead><tbody><tr th:each="item : ${report}"><td th:text="${item.budgetId}"></td><td th:text="${item.analyticAccountId}"></td><td th:text="${item.period}"></td><td th:text="${item.startDate}"></td><td th:text="${item.endDate}"></td><td th:text="${item.plannedElectricityCost}"></td><td th:text="${item.actualElectricityCost}"></td><td th:text="${item.electricityVariance}"></td><td th:text="${item.plannedRepairCost}"></td><td th:text="${item.actualRepairCost}"></td><td th:text="${item.repairVariance}"></td><td th:text="${item.plannedSales}"></td><td th:text="${item.actualSales}"></td><td th:text="${item.salesVariance}"></td></tr><tr th:if="${report == null or report.isEmpty()}"><td colspan="14" class="empty">No budget variance data is available.</td></tr></tbody></table></div></section>
+</main>
+</body>
+</html>

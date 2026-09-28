@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vendor Bills | TSMRF Management</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<aside class="sidebar">
+  <h2>TSMRF</h2><p>Material Recovery Facility</p>
+  <nav id="navigation">
+        <a class="nav-btn" href="/">Dashboard</a>
+        <a class="nav-btn" href="/web/contacts">Contacts</a>
+        <a class="nav-btn" href="/web/products">Products</a>
+        <a class="nav-btn" href="/web/sorters">Optical Sorters</a>
+        <a class="nav-btn" href="/web/production">Production</a>
+        <a class="nav-btn" href="/web/purchase-orders">Purchase Orders</a>
+        <a class="nav-btn" href="/web/vendor-bills">Vendor Bills</a>
+        <a class="nav-btn" href="/web/sales-orders">Sales Orders</a>
+        <a class="nav-btn" href="/web/invoices">Invoices</a>
+        <a class="nav-btn" href="/web/payments">Payments</a>
+        <a class="nav-btn" href="/web/accounts">Accounts</a>
+        <a class="nav-btn" href="/web/analytic-accounts">Analytic Accounts</a>
+        <a class="nav-btn" href="/web/budgets">Budgets</a>
+        <a class="nav-btn" href="/web/journals">Journals</a>
+        <a class="nav-btn" href="/web/ledger">Ledger</a>
+        <a class="nav-btn" href="/web/reports/balance-sheet">Reports</a>
+  </nav>
+</aside>
+<main class="main">
+  <header class="topbar"><div><h1>Vendor Bills</h1><p>Automated Urban Pneumatic Trash Sorting &amp; Material Recovery Facility</p></div></header>
+<section class="table-card">
+<div class="table-header"><h3>Vendor Bills</h3><span class="muted" th:text="'Records: ' + ${vendorBills == null ? 0 : vendorBills.size()}">Records</span></div>
+<div class="table-wrap">
+<table class="data-table"><thead><tr><th>ID</th><th>Bill No.</th><th>PO ID</th><th>Vendor</th><th>Item</th><th>Quantity</th><th>Unit Price</th><th>Total</th><th>Bill Date</th><th>Due Date</th><th>Status</th></tr></thead>
+<tbody><tr th:each="item : ${vendorBills}"><td><span th:text="${item.id}"></span></td><td><span th:text="${item.billNumber}"></span></td><td><span th:text="${item.purchaseOrderId}"></span></td><td><span th:text="${item.vendorName}"></span></td><td><span th:text="${item.itemDescription}"></span></td><td><span th:text="${item.quantity}"></span></td><td><span th:text="${item.unitPrice}"></span></td><td><span th:text="${item.totalAmount}"></span></td><td><span th:text="${item.billDate}"></span></td><td><span th:text="${item.dueDate}"></span></td><td><span class="status" th:text="${item.status}"></span></td></tr>
+<tr th:if="${vendorBills == null or vendorBills.isEmpty()}"><td class="empty" colspan="11">No vendor bills have been recorded.</td></tr>
+</tbody></table></div></section>
+</main>
+</body>
+</html>

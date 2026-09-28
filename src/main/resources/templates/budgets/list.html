@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facility Budgets | TSMRF Management</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<aside class="sidebar">
+  <h2>TSMRF</h2><p>Material Recovery Facility</p>
+  <nav id="navigation">
+        <a class="nav-btn" href="/">Dashboard</a>
+        <a class="nav-btn" href="/web/contacts">Contacts</a>
+        <a class="nav-btn" href="/web/products">Products</a>
+        <a class="nav-btn" href="/web/sorters">Optical Sorters</a>
+        <a class="nav-btn" href="/web/production">Production</a>
+        <a class="nav-btn" href="/web/purchase-orders">Purchase Orders</a>
+        <a class="nav-btn" href="/web/vendor-bills">Vendor Bills</a>
+        <a class="nav-btn" href="/web/sales-orders">Sales Orders</a>
+        <a class="nav-btn" href="/web/invoices">Invoices</a>
+        <a class="nav-btn" href="/web/payments">Payments</a>
+        <a class="nav-btn" href="/web/accounts">Accounts</a>
+        <a class="nav-btn" href="/web/analytic-accounts">Analytic Accounts</a>
+        <a class="nav-btn" href="/web/budgets">Budgets</a>
+        <a class="nav-btn" href="/web/journals">Journals</a>
+        <a class="nav-btn" href="/web/ledger">Ledger</a>
+        <a class="nav-btn" href="/web/reports/balance-sheet">Reports</a>
+  </nav>
+</aside>
+<main class="main">
+  <header class="topbar"><div><h1>Facility Budgets</h1><p>Automated Urban Pneumatic Trash Sorting &amp; Material Recovery Facility</p></div></header>
+<section class="table-card">
+<div class="table-header"><h3>Facility Budgets</h3><span class="muted" th:text="'Records: ' + ${budgets == null ? 0 : budgets.size()}">Records</span></div>
+<div class="table-wrap">
+<table class="data-table"><thead><tr><th>ID</th><th>Analytic Account ID</th><th>Period</th><th>Start Date</th><th>End Date</th><th>Planned Electricity</th><th>Actual Electricity</th><th>Planned Repairs</th><th>Actual Repairs</th><th>Planned Sales</th><th>Actual Sales</th></tr></thead>
+<tbody><tr th:each="item : ${budgets}"><td><span th:text="${item.id}"></span></td><td><span th:text="${item.analyticAccountId}"></span></td><td><span th:text="${item.period}"></span></td><td><span th:text="${item.startDate}"></span></td><td><span th:text="${item.endDate}"></span></td><td><span th:text="${item.plannedElectricityCost}"></span></td><td><span th:text="${item.actualElectricityCost}"></span></td><td><span th:text="${item.plannedRepairCost}"></span></td><td><span th:text="${item.actualRepairCost}"></span></td><td><span th:text="${item.plannedSales}"></span></td><td><span th:text="${item.actualSales}"></span></td></tr>
+<tr th:if="${budgets == null or budgets.isEmpty()}"><td class="empty" colspan="11">No budgets have been entered.</td></tr>
+</tbody></table></div></section>
+</main>
+</body>
+</html>

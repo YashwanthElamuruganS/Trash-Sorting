@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facility Dashboard | TSMRF Management</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<aside class="sidebar">
+  <h2>TSMRF</h2><p>Material Recovery Facility</p>
+  <nav id="navigation">
+        <a class="nav-btn" href="/">Dashboard</a>
+        <a class="nav-btn" href="/web/contacts">Contacts</a>
+        <a class="nav-btn" href="/web/products">Products</a>
+        <a class="nav-btn" href="/web/sorters">Optical Sorters</a>
+        <a class="nav-btn" href="/web/production">Production</a>
+        <a class="nav-btn" href="/web/purchase-orders">Purchase Orders</a>
+        <a class="nav-btn" href="/web/vendor-bills">Vendor Bills</a>
+        <a class="nav-btn" href="/web/sales-orders">Sales Orders</a>
+        <a class="nav-btn" href="/web/invoices">Invoices</a>
+        <a class="nav-btn" href="/web/payments">Payments</a>
+        <a class="nav-btn" href="/web/accounts">Accounts</a>
+        <a class="nav-btn" href="/web/analytic-accounts">Analytic Accounts</a>
+        <a class="nav-btn" href="/web/budgets">Budgets</a>
+        <a class="nav-btn" href="/web/journals">Journals</a>
+        <a class="nav-btn" href="/web/ledger">Ledger</a>
+        <a class="nav-btn" href="/web/reports/balance-sheet">Reports</a>
+  </nav>
+</aside>
+<main class="main">
+  <header class="topbar"><div><h1>Facility Dashboard</h1><p>Automated Urban Pneumatic Trash Sorting &amp; Material Recovery Facility</p></div></header>
+<section class="stats">
+<div class="card stat"><span>Contacts</span><h2 th:text="${contactCount}">0</h2></div>
+<div class="card stat"><span>Products</span><h2 th:text="${productCount}">0</h2></div>
+<div class="card stat"><span>Optical Sorters</span><h2 th:text="${sorterCount}">0</h2></div>
+<div class="card stat"><span>Production Records</span><h2 th:text="${productionCount}">0</h2></div>
+<div class="card stat"><span>Purchase Orders</span><h2 th:text="${purchaseOrderCount}">0</h2></div>
+<div class="card stat"><span>Sales Orders</span><h2 th:text="${salesOrderCount}">0</h2></div>
+<div class="card stat"><span>Customer Invoices</span><h2 th:text="${invoiceCount}">0</h2></div>
+<div class="card stat"><span>Payments</span><h2 th:text="${paymentCount}">0</h2></div>
+</section>
+<section class="card"><h2>Facility Operations</h2><p class="muted">Use the navigation menu to view master data, log production, manage orders and review financial reports.</p></section>
+</main>
+</body>
+</html>
